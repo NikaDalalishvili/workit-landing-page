@@ -1,0 +1,461 @@
+/*
+ * GLOBAL VARIABLES 
+ */
+@font-face {
+    font-family: 'Fraunces 144pt';
+    src: url(../fonts/./fraunces/Fraunces-VariableFont_SOFT,WONK,opsz,wght.ttf);
+}
+
+@font-face {
+    font-family: 'Fraunces 144pt 2';
+    src: url(../fonts/./fraunces/Fraunces_144pt-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url(../fonts/manrope/Manrope-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: 'Manrope 2';
+    src: url(../fonts/manrope/Manrope-Regular.ttf);
+}
+
+// COLORS
+$dark-purple: #24053E;
+$Eucaplyptus: #44FFA1;
+$davys-grey: #584D62;
+$ghost-white: #FCF8FF;
+$white: #FFFFFF;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $white;
+
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+}
+
+header {
+    padding: 32px 16px 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: absolute;
+
+    z-index: 3;
+
+    p {
+        border-bottom: 3px solid $Eucaplyptus;
+
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 32px;
+        letter-spacing: -0.16px;
+
+        color: $white;
+
+    }
+}
+
+main {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    .home {
+        width: 100%;
+        height: 481.71px;
+        border-radius: 0 0 50% 50% / 0 0 17.75px 17.75px;
+
+        background-color: $dark-purple;
+        z-index: 2;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 64px;
+
+        clip-path: ellipse(100% 55% at 50% 45%);
+        overflow: visible;
+
+        position: relative;
+
+        .pattern-img {
+            display: none;
+        }
+
+        .intro {
+            margin: 160px 16px 0;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+
+            .title {
+                font-family: 'Fraunces 144pt 2';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 50px;
+                line-height: 50px;
+                text-align: center;
+
+                color: $white;
+
+                span {
+                    position: relative;
+
+                    &:after {
+                        content: '';
+                        width: 100%;
+                        height: 3px;
+                        background-color: $Eucaplyptus;
+
+                        position: absolute;
+                        bottom: 5%;
+                        left: 0;
+                    }
+                }
+            }
+
+            button {
+                padding: 11px 24px 12px 23px;
+                border: none;
+                background-color: $Eucaplyptus;
+
+                font-family: 'Manrope';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 32px;
+                text-align: center;
+                letter-spacing: -0.16px;
+
+                color: $dark-purple;
+            }
+        }
+
+        img {
+            width: 320px;
+            height: 182px;
+            
+        }
+
+    }
+
+    .features {
+        margin-top: -89.71px;
+        padding-top: 245px;
+        height: 1070.71px;
+        border-radius: 0 0 50% 50% / 0 0 17.75px 17.75px;
+
+        background-color: $ghost-white;
+        z-index: 1;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+
+        .feature {
+            margin: 0 16px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+
+            text-align: center;
+
+            .number {
+                width: 48px;
+                height: 46px;
+                border: 1px solid $davys-grey;
+                border-radius: 50%;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                font-family: 'Fraunces 144pt 2';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 36px;
+
+                color: $dark-purple;
+            }
+
+            .text-content {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+
+                .title {
+                    font-family: 'Fraunces 144pt 2';
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 28px;
+                    line-height: 36px;
+
+                    color: $dark-purple;
+                }
+
+                .subtitle {
+                    font-family: 'Manrope 2';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 28px;
+
+                    color: $davys-grey;
+                }
+            }
+        }
+    }
+
+    .test {
+        .test-content {
+            margin: 100.29px 16px 74px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            img {
+                width: 281px;
+            }
+
+            .inner-text {
+                margin-top: -53px;
+
+                padding: 32px 31px;
+                background-color: $dark-purple;
+
+                text-align: center;
+
+                .title {
+                    font-family: 'Fraunces 144pt 2';
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 32px;
+                    line-height: 48px;
+
+                    color: $white;
+                }
+
+                .caption {
+                    margin: 16px 0 24px;
+                    font-family: 'Manrope 2';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 28px;
+
+                    color: $white;
+                }
+
+                button {
+                    padding: 11px 23.5px 12px;
+                    border: none;
+                    background-color: $Eucaplyptus;
+
+                    font-family: 'Manrope';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 32px;
+                    letter-spacing: -0.16px;
+
+                    color: $dark-purple;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    .btns {
+        margin-bottom: 63.78px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 58px;
+
+        .links {
+            display: flex;
+            flex-direction: row;
+            gap: 28px;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+    header {
+        padding: 32px 39px 0 40px;
+    }
+
+    main {
+        position: relative;
+
+        .pattern-img {
+            display: inline;
+
+            position: absolute;
+
+            &.sec {
+                left: 11.39px;
+                top: 387.94px;
+
+            }
+
+            &.third {
+                top:0;
+                right: 0;
+            }
+
+            &.fourth {
+                bottom: 0;
+                right: 0;
+            }
+        }
+
+        .home {
+            height: 540.24px;
+            border-radius: 0 0 50% 50%/0 0 36.25px 36.25px;
+            gap: 55px;
+
+            .pattern-img {
+                display: inline;
+
+                position: absolute;
+
+                &.first {
+                    width: 270.29px;
+                    height: 215.1px;
+                    left: 11.39px;
+                    top: 387.94px;
+
+                    transform: rotate(-152deg);
+
+                }
+
+                &.sec {
+                    left: 11.39px;
+                    top: 387.94px;
+
+                    transform: rotate(-152deg);
+
+                }
+
+                &.third {
+                    top:0;
+                    right: 0;
+                }
+
+                &.fourth {
+                    bottom: 0;
+                    right: 0;
+                }
+            }
+
+            .intro {
+                margin: 122px 0 0;
+                gap: 39px;
+
+                .title {
+                    font-size: 60px;
+                    line-height: 60px;
+                }
+            }
+
+            img {
+                width: 514px;
+                height: 296px;
+            }
+        }
+
+        .features {
+            margin-top: -137.25px;
+            padding-top: 341px;
+            height: 920.73px;
+            border-radius: 0 0 50% 50%/0 0 36.25px 36.25px;
+            gap: 48px;
+
+            .feature {
+                margin: 0;
+
+                flex-direction: row;
+                gap: 32px;
+
+                text-align: left;
+
+                .text-content {
+                    width: 493px;
+                    align-items: flex-start;
+                }
+            }
+        }
+
+        .test {
+            .test-content {
+                margin: 100.27px 39px 80px 40px;
+                width: 689px;
+
+                display: flex;
+                align-items: stretch;
+
+                img {
+                    align-self: flex-start;
+                }
+
+                .inner-text {
+                    margin-top: -130px;
+                    padding: 48px 56px 56px;
+                    width: 514px;
+
+                    align-self: flex-end;
+
+                    text-align: left;
+
+                    .title {
+                        font-size: 48px;
+                        line-height: 56px;
+                    }
+
+                    button {
+                        padding: 11px 23.5px 12px;
+                        border: none;
+                        background-color: $Eucaplyptus;
+
+                        font-family: 'Manrope';
+                        font-style: normal;
+                        font-weight: 700;
+                        font-size: 16px;
+                        line-height: 32px;
+                        letter-spacing: -0.16px;
+
+                        color: $dark-purple;
+                    }
+                }
+            }
+        }
+
+    }
+}
