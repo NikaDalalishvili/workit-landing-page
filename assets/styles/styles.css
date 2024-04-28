@@ -60,8 +60,6 @@ header button {
   background-color: transparent;
   color: #FFFFFF;
   padding-bottom: 2px;
-  width: 124px;
-  height: 34px;
 }
 
 main {
@@ -180,7 +178,6 @@ main .features::after {
   background-color: #44FFA1;
   color: #24053E;
   padding: 9px 22px 10px 21px;
-  width: 133px;
 }
 
 .features .feature {
@@ -282,7 +279,6 @@ main .features::after {
   background-color: #44FFA1;
   color: #24053E;
   padding: 9px 21.5px 10px;
-  width: 172px;
 }
 
 footer {
@@ -290,27 +286,29 @@ footer {
   flex-direction: column;
   align-items: center;
 }
-footer .inner-content {
+
+.inner-content {
   margin: 74px 0 63.78px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 57.62px;
 }
-footer .inner-content .links {
+.inner-content .links {
   display: flex;
   align-items: center;
   gap: 28px;
 }
-footer .inner-content .links a {
+.inner-content .links a {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-footer .inner-content .links a svg path {
+.inner-content .links a svg path {
   fill: #584D62;
 }
-footer .attribution {
+
+.attribution {
   margin: 15px 0;
   padding: 10px 12px;
   width: 100%;
@@ -321,7 +319,7 @@ footer .attribution {
   flex-wrap: wrap;
   column-gap: 5px;
 }
-footer .attribution p {
+.attribution p {
   font-family: "Manrope";
   font-style: normal;
   font-weight: 700;
@@ -331,7 +329,7 @@ footer .attribution p {
   letter-spacing: -0.16px;
   color: #FFFFFF;
 }
-footer .attribution p a {
+.attribution p a {
   font-family: "Manrope";
   font-style: normal;
   font-weight: 700;
@@ -344,12 +342,10 @@ footer .attribution p a {
   background-color: transparent;
   color: #FFFFFF;
   padding-bottom: 2px;
-  width: 124px;
-  height: 34px;
 }
 
 @media only screen and (min-width: 648px) {
-  footer .attribution {
+  .attribution {
     width: max-content;
     align-self: flex-start;
   }
@@ -505,7 +501,7 @@ footer .attribution p a {
     bottom: -105.74px;
   }
 
-  footer .inner-content {
+  .inner-content {
     margin: 80px 0 121.78px;
   }
 }
@@ -528,8 +524,6 @@ footer .attribution p a {
     font-size: 18px;
     letter-spacing: -0.18px;
     padding-bottom: 0px;
-    width: 140px;
-    height: 35px;
   }
 
   main .home {
@@ -636,7 +630,6 @@ footer .attribution p a {
     font-size: 18px;
     letter-spacing: -0.18px;
     padding: 11px 29.5px 14px 30.5px;
-    width: 161px;
   }
 
   .features .feature {
@@ -719,13 +712,13 @@ footer .attribution p a {
     font-size: 18px;
     letter-spacing: -0.18px;
     padding: 11px 22.5px 14px 23.5px;
-    width: 190px;
   }
 
-  footer .inner-content {
+  .inner-content {
     margin: 60.03px 0 110px;
   }
-  footer .attribution p a {
+
+  .attribution p a {
     font-family: "Manrope";
     font-style: normal;
     font-weight: 700;
@@ -740,8 +733,6 @@ footer .attribution p a {
     font-size: 18px;
     letter-spacing: -0.18px;
     padding-bottom: 0px;
-    width: 140px;
-    height: 35px;
   }
 }
 @media (hover: hover) and (pointer: fine) {
@@ -756,35 +747,37 @@ footer .attribution p a {
     color: #44FFA1;
   }
 
-  main .home .intro .text-content button {
+  .home .intro .text-content button {
     transition-property: background-color, color;
     transition-duration: 0.5s;
     transition-timing-function: ease-out;
   }
-  main .home .intro .text-content button:hover {
-    background-color: #24053E;
-    color: #44FFA1;
-  }
-  main .test .inner-text button {
-    transition-property: background-color, color;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-out;
-  }
-  main .test .inner-text button:hover {
+  .home .intro .text-content button:hover {
     background-color: #24053E;
     color: #44FFA1;
   }
 
-  footer .inner-content .links a svg path {
+  .test .inner-text button {
+    transition-property: background-color, color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+  }
+  .test .inner-text button:hover {
+    background-color: #24053E;
+    color: #44FFA1;
+  }
+
+  .inner-content .links a svg path {
     transition: all 0.5s ease-out;
   }
-  footer .inner-content .links a:hover svg path {
+  .inner-content .links a:hover svg path {
     fill: #24053E;
   }
-  footer .attribution p a {
+
+  .attribution p a {
     transition: color 0.5s ease-out;
   }
-  footer .attribution p a:hover {
+  .attribution p a:hover {
     color: #44FFA1;
   }
 }
