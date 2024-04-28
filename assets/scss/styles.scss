@@ -1,14 +1,20 @@
 /*
  * GLOBAL VARIABLES 
  */
+// FONTS
 @font-face {
     font-family: 'Fraunces 144pt';
+    src: url(../fonts/fraunces/static/Fraunces_144pt-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: 'Fraunces';
     src: url(../fonts/./fraunces/Fraunces-VariableFont_SOFT,WONK,opsz,wght.ttf);
 }
 
 @font-face {
-    font-family: 'Fraunces 144pt 2';
-    src: url(../fonts/./fraunces/Fraunces_144pt-SemiBold.ttf);
+    font-family: 'Manrope regular';
+    src: url(../fonts/manrope/static/Manrope-Regular.ttf);
 }
 
 @font-face {
@@ -16,18 +22,241 @@
     src: url(../fonts/manrope/Manrope-VariableFont_wght.ttf);
 }
 
-@font-face {
-    font-family: 'Manrope 2';
-    src: url(../fonts/manrope/Manrope-Regular.ttf);
-}
-
 // COLORS
 $dark-purple: #24053E;
-$Eucaplyptus: #44FFA1;
+$eucaplyptus: #44FFA1;
 $davys-grey: #584D62;
 $ghost-white: #FCF8FF;
 $white: #FFFFFF;
 
+// TYPOGRAPHY
+@mixin heading($size, $section) {
+    font-family: 'Fraunces 144pt';
+    font-style: normal;
+    font-weight: 600;
+    text-align: center;
+
+    @if $section == 'home' {
+        color: $white;
+    }@else if $section == 'features' {
+        color: $dark-purple;
+    }@else if $section == 'test' {
+        color: $white;
+    }
+            
+
+    @if $size == 's' {
+        /* Heading S */
+        @if $section == 'home' {
+            font-size: 50px;
+            line-height: 50px;
+        }@else if $section == 'features' {
+            font-size: 28px;
+            line-height: 36px;
+        }@else if $section == 'test' {
+            font-size: 32px;
+            line-height: 48px;
+        }
+    }@else if $size == 'm' {
+        /* Heading M */
+        @if $section == 'home' {
+            font-size: 60px;
+            line-height: 60px;
+        }@else if($section == 'features'){
+            font-size: 32px;
+            line-height: 40px;
+        }@else if($section == 'test'){
+            text-align: left;
+            font-size: 48px;
+            line-height: 56px;
+        }
+    }@else if $size == 'l' {
+        /* Heading L */
+        @if $section == 'home' {
+            font-size: 80px;
+            line-height: 80px;
+        }@else if($section == 'test'){
+            text-align: left;
+            font-size: 56px;
+            line-height: 64px;
+        }
+    }
+
+    @else if $size =='m' {
+        font-size: 56px;
+        line-height: 64px;
+    }
+
+    @else if $size =='s' {
+        font-size: 32px;
+        line-height: 40px;
+    }
+}
+
+@mixin body($size, $section) {
+    font-family: 'Manrope regular';
+    font-style: normal;
+    font-weight: 400;
+
+    @if $section == 'features' {
+        color: $davys-grey;
+    }@else if $section == 'test' {
+        color: $white;
+    }
+
+    @if $size == 's' {
+        font-size: 16px;
+        line-height: 28px;
+        text-align: center;
+
+        @if $section == 'features' {
+            max-inline-size: 343px;
+        }@else if $section == 'test' {
+            margin: 16px 0 24px;
+        }
+
+    }@else if $size == 'm' {
+        text-align: left;
+
+        @if $section == 'features' {
+            max-inline-size: 493px;
+        }@else if $section == 'test' {
+            margin: 24px 0;
+        }
+    }@else if $size == 'l' {
+        font-size: 18px;
+        line-height: 32px;
+
+        @if $section == 'features' {
+            text-align: center;
+            max-inline-size: 354px;
+        }@else if $section == 'test' {
+            margin: 32px 0;
+        }
+    }
+}
+
+// BUTTONS
+@mixin btn($size, $btn) {
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: center;
+    letter-spacing: -0.16px;
+    
+
+    @if $btn == 'primary' or $btn == 'test' {
+        border: 2px solid $eucaplyptus;
+        background-color: $eucaplyptus;
+        color: $dark-purple;
+    }@else if $btn == 'secondary' {
+        border: none;
+        border-bottom: 3px solid $eucaplyptus;
+        background-color: transparent;
+        color: $white;
+    }
+
+    @if $size == 's' {
+        @if $btn =='primary' {
+            padding: 9px 22px 10px 21px;
+            width: 133px;
+        }@else if $btn =='secondary' {
+            padding-bottom: 2px;
+            width: 124px;
+            height: 34px;
+        }@else if $btn == 'test' {
+            padding: 9px 21.5px 10px;
+            width: 172px;
+        }
+    }@else if $size == 'm' {
+        font-size: 18px;
+        letter-spacing: -0.18px;
+
+        @if $btn =='primary' {
+            padding: 11px 29.5px 14px 30.5px;
+            width: 161px;
+        }@else if $btn =='secondary' {
+            padding-bottom: 0px;
+            width: 140px;
+            height: 35px;
+        }@else if $btn == 'test' {
+            padding: 11px 22.5px 14px 23.5px;
+            width: 190px;
+        }
+    }
+}
+
+@mixin btn-hover($btn) {
+    @if $btn == 'primary' or $btn == 'test' {
+        background-color: $dark-purple;
+        color: $eucaplyptus;
+    }@else if $btn == 'secondary' {
+        color: $eucaplyptus;
+    }
+}
+
+// BACKGROUND PATTERNS 
+@mixin pattern-bg($status) {
+    @if $status =='hide' {
+        display: none;
+    }
+
+    @else if $status =='active' {
+        display: inline-block;
+        position: absolute;
+        transition: all .5s ease-out;
+    }
+}
+
+// QURLIES
+@mixin qurly($side, $size, $section) {
+    content: '';
+    width: 100%;
+    position: absolute;
+    left: 0;
+
+    @if $side == 'before' {
+        bottom: -5px;
+
+        @if $size == 's' {
+            height: calc(17.71px*3/2);
+        }@else if $size == 'm' {
+            height: calc(36.24px*3/2);
+        }@else if $size == 'l' {
+            height: calc(68px*3/2);
+        }
+
+        @if $section == 'home' {
+            background-color: $ghost-white;
+            z-index: -1;
+        }@else if $section == 'features' {
+            background-color: $white;
+        }
+    }@else if $side == 'after' {
+        bottom: 0;
+        clip-path: ellipse(55% 50% at 50% 50%);
+        @if $size == 's' {
+            height: calc(17.71px*3);
+        }@else if $size == 'm' {
+            height: calc(36.24px*3);
+        }@else if $size == 'l' {
+            height: calc(68px*3);
+        }
+
+        @if $section == 'home' {
+            background-color: $dark-purple;
+            z-index: -1;
+        }@else if $section == 'features' {
+            background-color: $ghost-white;
+        }
+    }
+}
+
+/*
+ * GLOBAL ELEMENTS
+ */
 
 * {
     margin: 0;
@@ -38,35 +267,33 @@ $white: #FFFFFF;
 body {
     background-color: $white;
 
-    display: flex;
-    flex-direction: column;
+    picture,
+    .logo {
+        display: flex;
+    }
 
-    position: relative;
+    a {
+        text-decoration: none;
+    }
 }
+
+// body elements
 
 header {
     padding: 32px 16px 0;
     width: 100%;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     position: absolute;
+    top: 0;
 
     z-index: 3;
 
-    p {
-        border-bottom: 3px solid $Eucaplyptus;
-
-        font-family: 'Manrope';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 32px;
-        letter-spacing: -0.16px;
-
-        color: $white;
-
+    button {
+        @include btn('s', 'secondary');
     }
 }
 
@@ -76,30 +303,61 @@ main {
     display: flex;
     flex-direction: column;
 
+    .pattern-bg {
+        @include pattern-bg('hide');
+    }
+
     .home {
         width: 100%;
         height: 481.71px;
-        border-radius: 0 0 50% 50% / 0 0 17.75px 17.75px;
 
-        background-color: $dark-purple;
+        position: relative;
+
         z-index: 2;
+        background-color: $dark-purple;
 
+        &::before {
+            @include qurly('before', 's', 'home');
+        }
+    
+        &::after {
+            @include qurly('after', 's', 'home');
+        }
+    }
+
+    .features {
+        margin-top: -89.71px;
+        padding-top: 245px;
+        height: 1070.71px;
+
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+
+        background-color: $ghost-white;
+
+        &::before {
+            @include qurly('before', 's', 'features');
+        }
+    
+        &::after {
+            @include qurly('after', 's', 'features');
+        }
+    }
+}
+
+.home {
+    .intro {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 64px;
 
-        clip-path: ellipse(100% 55% at 50% 45%);
-        overflow: visible;
-
-        position: relative;
-
-        .pattern-img {
-            display: none;
-        }
-
-        .intro {
-            margin: 160px 16px 0;
+        .text-content {
+            margin-top: 130px;
 
             display: flex;
             flex-direction: column;
@@ -107,23 +365,17 @@ main {
             gap: 40px;
 
             .title {
-                font-family: 'Fraunces 144pt 2';
-                font-style: normal;
-                font-weight: 600;
-                font-size: 50px;
-                line-height: 50px;
-                text-align: center;
-
-                color: $white;
+                @include heading('s', 'home');
 
                 span {
                     position: relative;
-
-                    &:after {
+                    font-size: 50px;
+                    line-height: 50px;
+                    &::after {
                         content: '';
                         width: 100%;
                         height: 3px;
-                        background-color: $Eucaplyptus;
+                        background-color: $eucaplyptus;
 
                         position: absolute;
                         bottom: 5%;
@@ -133,96 +385,255 @@ main {
             }
 
             button {
-                padding: 11px 24px 12px 23px;
-                border: none;
-                background-color: $Eucaplyptus;
+                @include btn('s', 'primary');
+            }
+        }
+    }
+}
 
-                font-family: 'Manrope';
-                font-style: normal;
-                font-weight: 700;
-                font-size: 16px;
-                line-height: 32px;
-                text-align: center;
-                letter-spacing: -0.16px;
+.features {
+    .feature {
+        margin: 0 16px;
 
-                color: $dark-purple;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+
+        & > * {
+            z-index: 1;
+        }
+
+        .number {
+            padding: 5px 16px;
+            width: 48px;
+            height: 46px;
+            border: 1px solid $davys-grey;
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-family: 'Fraunces 144pt';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 36px;
+
+            color: $dark-purple;
+        }
+        
+        .text-content {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            .title {
+                @include heading('s', 'features');
+            }
+
+            .subtitle {
+                @include body('s', 'features');
+            }
+        }
+    }
+}
+
+.test {
+    .test-content {
+        margin: 100.29px 16px 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .inner-text {
+        margin-top: -53px;
+        padding: 32px 31px;
+        width: 343px;
+
+        background-color: $dark-purple;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        .title {
+            @include heading('s', 'test');
+        }
+
+        .caption {
+            @include body('s', 'test');
+        }
+
+        button {
+            @include btn('s', 'test');
+        }
+    }
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .inner-content {
+        margin: 74px 0 63.78px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 57.62px;
+
+        .links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            
+            a {
+                svg path {
+                    fill: $davys-grey;
+                }
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+    .attribution {
+        margin: 15px 0;
+        padding: 10px 12px;
+        width: 100%;
+        background-color: $dark-purple;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        column-gap: 5px;
+
+        p {
+            font-family: 'Manrope';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 32px;
+            text-align: center;
+            letter-spacing: -0.16px;
+
+            color: $white;
+
+            a {
+                @include btn('s', 'secondary');
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 648px) {
+    footer {
+        .attribution {
+            width: max-content;
+            align-self: flex-start;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    header {
+        padding: 32px 40px 0 39px;
+    }
+
+    main {
+        .pattern-bg {
+            @include pattern-bg('active');
+        }
+
+        .home {
+            height: 540.24px;
+
+            &::before {
+                @include qurly('before', 'm', 'home');
+            }
+    
+            &::after {
+                @include qurly('after', 'm', 'home');
             }
         }
 
-        img {
-            width: 320px;
-            height: 182px;
+        .features {
+            margin-top: -137.24px;
             
+            padding-top: 341px;
+            height: 920.73px;
+    
+            gap: 48px;
+
+            &::before {
+                @include qurly('before', 'm', 'features');
+            }
+    
+            &::after {
+                @include qurly('after', 'm', 'features');
+            }
+        }
+
+        .test {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    .home {
+        .pattern-bg {
+            &.left {
+                top: 71.12px;
+                left: -227.27px;
+            }
+
+            &.right {
+                top: 250px;
+                right: -93.68px;
+            }
+        }
+
+        .intro {
+            margin: 0;
+            gap: 55px;
+            overflow: hidden;
+            position: relative;
+
+            .text-content {
+                margin-top: 122px;
+                gap: 39px;
+
+                .title {
+                    @include heading('m', 'home');
+                    span {
+                        font-size: 60px;
+                        line-height: 60px;
+                    }
+                }
+            }
         }
 
     }
 
     .features {
-        margin-top: -89.71px;
-        padding-top: 245px;
-        height: 1070.71px;
-        border-radius: 0 0 50% 50% / 0 0 17.75px 17.75px;
-
-        background-color: $ghost-white;
-        z-index: 1;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
-
         .feature {
-            margin: 0 16px;
+            margin: 0;
 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 24px;
-
-            text-align: center;
-
-            .number {
-                width: 48px;
-                height: 46px;
-                border: 1px solid $davys-grey;
-                border-radius: 50%;
-
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                font-family: 'Fraunces 144pt 2';
-                font-style: normal;
-                font-weight: 600;
-                font-size: 20px;
-                line-height: 36px;
-
-                color: $dark-purple;
-            }
+            flex-direction: row;
+            gap: 32px;
 
             .text-content {
-                display: flex;
-                flex-direction: column;
-                gap: 16px;
-
-                .title {
-                    font-family: 'Fraunces 144pt 2';
-                    font-style: normal;
-                    font-weight: 600;
-                    font-size: 28px;
-                    line-height: 36px;
-
-                    color: $dark-purple;
-                }
+                align-items: flex-start;
 
                 .subtitle {
-                    font-family: 'Manrope 2';
-                    font-style: normal;
-                    font-weight: 400;
-                    font-size: 16px;
-                    line-height: 28px;
-
-                    color: $davys-grey;
+                    @include body('m', 'features');
                 }
             }
         }
@@ -230,232 +641,275 @@ main {
 
     .test {
         .test-content {
-            margin: 100.29px 16px 74px;
+            margin: 100.27px 0 0;
+            width: 689px;
 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
+        }
 
-            img {
-                width: 281px;
+        .inner-text {
+            margin-top: -130px;
+            padding: 48px 56px 56px;
+            width: 514px;
+
+            align-self: flex-end;
+            align-items: flex-start;
+
+            position: relative;
+
+            .title {
+                @include heading('m', 'test');
             }
 
-            .inner-text {
-                margin-top: -53px;
+            .caption {
+                @include body('m', 'test');
+            }
 
-                padding: 32px 31px;
-                background-color: $dark-purple;
-
-                text-align: center;
-
-                .title {
-                    font-family: 'Fraunces 144pt 2';
-                    font-style: normal;
-                    font-weight: 600;
-                    font-size: 32px;
-                    line-height: 48px;
-
-                    color: $white;
-                }
-
-                .caption {
-                    margin: 16px 0 24px;
-                    font-family: 'Manrope 2';
-                    font-style: normal;
-                    font-weight: 400;
-                    font-size: 16px;
-                    line-height: 28px;
-
-                    color: $white;
-                }
-
-                button {
-                    padding: 11px 23.5px 12px;
-                    border: none;
-                    background-color: $Eucaplyptus;
-
-                    font-family: 'Manrope';
-                    font-style: normal;
-                    font-weight: 700;
-                    font-size: 16px;
-                    line-height: 32px;
-                    letter-spacing: -0.16px;
-
-                    color: $dark-purple;
+            .pattern-bg {
+                &.test-pt {
+                    right: 12.69px;
+                    bottom: -105.74px;
                 }
             }
         }
     }
-}
 
-footer {
-    .btns {
-        margin-bottom: 63.78px;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 58px;
-
-        .links {
-            display: flex;
-            flex-direction: row;
-            gap: 28px;
+    footer {
+        .inner-content{
+            margin: 80px 0 121.78px;
         }
     }
 }
 
-
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1440px) {
     header {
-        padding: 32px 39px 0 40px;
+        padding: 56px 165px 0 165.35px;
+
+        button {
+            @include btn('m', 'secondary');
+        }
     }
 
     main {
-        position: relative;
-
-        .pattern-img {
-            display: inline;
-
-            position: absolute;
-
-            &.sec {
-                left: 11.39px;
-                top: 387.94px;
-
-            }
-
-            &.third {
-                top:0;
-                right: 0;
-            }
-
-            &.fourth {
-                bottom: 0;
-                right: 0;
-            }
-        }
-
         .home {
-            height: 540.24px;
-            border-radius: 0 0 50% 50%/0 0 36.25px 36.25px;
-            gap: 55px;
+            height: 730px;
 
-            .pattern-img {
-                display: inline;
-
-                position: absolute;
-
-                &.first {
-                    width: 270.29px;
-                    height: 215.1px;
-                    left: 11.39px;
-                    top: 387.94px;
-
-                    transform: rotate(-152deg);
-
-                }
-
-                &.sec {
-                    left: 11.39px;
-                    top: 387.94px;
-
-                    transform: rotate(-152deg);
-
-                }
-
-                &.third {
-                    top:0;
-                    right: 0;
-                }
-
-                &.fourth {
-                    bottom: 0;
-                    right: 0;
-                }
+            &::before {
+                @include qurly('before', 'l', 'home');
             }
-
-            .intro {
-                margin: 122px 0 0;
-                gap: 39px;
-
-                .title {
-                    font-size: 60px;
-                    line-height: 60px;
-                }
-            }
-
-            img {
-                width: 514px;
-                height: 296px;
+    
+            &::after {
+                @include qurly('after', 'l', 'home');
             }
         }
 
         .features {
-            margin-top: -137.25px;
-            padding-top: 341px;
-            height: 920.73px;
-            border-radius: 0 0 50% 50%/0 0 36.25px 36.25px;
-            gap: 48px;
+            margin-top: -226px;
+            padding-top: 481px;
+            height: 960px;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 26px;
 
-            .feature {
-                margin: 0;
+            &::before {
+                @include qurly('before', 'l', 'features');
+            }
+    
+            &::after {
+                @include qurly('after', 'l', 'features');
 
-                flex-direction: row;
-                gap: 32px;
-
-                text-align: left;
-
-                .text-content {
-                    width: 493px;
-                    align-items: flex-start;
-                }
             }
         }
 
         .test {
             .test-content {
-                margin: 100.27px 39px 80px 40px;
-                width: 689px;
+                margin-top: 110px;
+                height: 647.74px;
+            }
+            .inner-text {
+                .pattern-bg{
+                    &.test-pt {
+                        right: 72.69px;
+                        bottom: -61.74px;
+                    }
+                }
+            }
+        }
+    }
 
-                display: flex;
-                align-items: stretch;
+    .home {
+        .pattern-bg {
+            &.left {
+                top: 116.12px;
+                left: -138.27px;
+            }
 
-                img {
-                    align-self: flex-start;
+            &.right {
+                top: 314.07px;
+                right: -48.08px;
+            }
+        }
+
+        .intro {
+            gap: 50px;
+
+            .text-content {
+                margin-top: 146px;
+
+                .title {
+                    @include heading('l', "home");
+                    span {
+                        font-size: 80px;
+                        line-height: 80px;
+                    }
                 }
 
-                .inner-text {
-                    margin-top: -130px;
-                    padding: 48px 56px 56px;
-                    width: 514px;
+                button {
+                    height: 61px;
+                    @include btn('m', 'primary');
+                }
+            }
+        }
+    }
 
-                    align-self: flex-end;
+    .features {
+        .feature {
+            flex-direction: column;
+            gap: 56px;
 
-                    text-align: left;
+            .number {
+                width: 56px;
+                height: 56px;
 
-                    .title {
-                        font-size: 48px;
-                        line-height: 56px;
-                    }
+                font-size: 24px;
+                line-height: 40px;
+            }
 
+            .text-content {
+                align-items: center;
+                gap: 28px;
+
+                .title {
+                    @include heading('m', 'features');
+                }
+
+                .subtitle {
+                    @include body('l', 'features');
+                }
+            }
+        }
+    }
+
+    .test {
+        .test-content {
+            margin: 110px 0 0;
+            width: 1112px;
+            margin: 0;
+        }
+        .inner-text {
+            // margin: -304px 0 61.74px;
+            margin: -304px 0 0;
+            padding: 64px;
+            width: 730px;
+            height: 413px;
+
+            .title {
+                @include heading('l', 'test');
+            }
+
+            .caption {
+                @include body('l', 'test');
+            }
+
+            button {
+                @include btn('m', 'test');
+            }
+        }
+    }
+
+    footer {
+        .inner-content {
+            margin: 60.03px 0 110px;
+        }
+
+        .attribution {
+            p {
+                a {
+                    @include btn('m', 'secondary');
+                }
+            }
+        }
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    button {
+        cursor: pointer;
+    }
+
+    header {
+        button {
+            transition: color .5s ease-out;
+            &:hover {
+                @include btn-hover('secondary');
+            }
+        }
+    }
+
+    main {
+        .home {
+            .intro {
+                .text-content {
                     button {
-                        padding: 11px 23.5px 12px;
-                        border: none;
-                        background-color: $Eucaplyptus;
-
-                        font-family: 'Manrope';
-                        font-style: normal;
-                        font-weight: 700;
-                        font-size: 16px;
-                        line-height: 32px;
-                        letter-spacing: -0.16px;
-
-                        color: $dark-purple;
+                        transition-property: background-color, color;
+                        transition-duration: .5s; 
+                        transition-timing-function: ease-out; 
+                        &:hover {
+                            @include btn-hover('primary');
+                        }
                     }
                 }
             }
         }
 
+        .test {
+            .inner-text {
+                button {
+                    transition-property: background-color, color;
+                    transition-duration: .5s; 
+                    transition-timing-function: ease-out; 
+                    &:hover {
+                        @include btn-hover('test');
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        .inner-content {
+            .links {
+                a {
+                    svg path {
+                        transition: all .5s ease-out;
+                    }
+                    &:hover svg path {
+                        fill: $dark-purple;
+                    }
+                }
+            }
+        }
+
+        .attribution {
+            p {
+                a {
+                    transition: color .5s ease-out;
+                    &:hover {
+                        @include btn-hover('secondary');
+                    }
+                }
+            }
+        }
     }
 }

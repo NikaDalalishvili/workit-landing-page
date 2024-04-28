@@ -3,20 +3,23 @@
  */
 @font-face {
   font-family: "Fraunces 144pt";
+  src: url(../fonts/fraunces/static/Fraunces_144pt-SemiBold.ttf);
+}
+@font-face {
+  font-family: "Fraunces";
   src: url(../fonts/./fraunces/Fraunces-VariableFont_SOFT,WONK,opsz,wght.ttf);
 }
 @font-face {
-  font-family: "Fraunces 144pt 2";
-  src: url(../fonts/./fraunces/Fraunces_144pt-SemiBold.ttf);
+  font-family: "Manrope regular";
+  src: url(../fonts/manrope/static/Manrope-Regular.ttf);
 }
 @font-face {
   font-family: "Manrope";
   src: url(../fonts/manrope/Manrope-VariableFont_wght.ttf);
 }
-@font-face {
-  font-family: "Manrope 2";
-  src: url(../fonts/manrope/Manrope-Regular.ttf);
-}
+/*
+ * GLOBAL ELEMENTS
+ */
 * {
   margin: 0;
   padding: 0;
@@ -25,9 +28,13 @@
 
 body {
   background-color: #FFFFFF;
+}
+body picture,
+body .logo {
   display: flex;
-  flex-direction: column;
-  position: relative;
+}
+body a {
+  text-decoration: none;
 }
 
 header {
@@ -37,17 +44,24 @@ header {
   align-items: center;
   justify-content: space-between;
   position: absolute;
+  top: 0;
   z-index: 3;
 }
-header p {
-  border-bottom: 3px solid #44FFA1;
+header button {
   font-family: "Manrope";
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 32px;
+  text-align: center;
   letter-spacing: -0.16px;
+  border: none;
+  border-bottom: 3px solid #44FFA1;
+  background-color: transparent;
   color: #FFFFFF;
+  padding-bottom: 2px;
+  width: 124px;
+  height: 34px;
 }
 
 main {
@@ -55,43 +69,97 @@ main {
   display: flex;
   flex-direction: column;
 }
+main .pattern-bg {
+  display: none;
+}
 main .home {
   width: 100%;
   height: 481.71px;
-  border-radius: 0 0 50% 50%/0 0 17.75px 17.75px;
-  background-color: #24053E;
+  position: relative;
   z-index: 2;
+  background-color: #24053E;
+}
+main .home::before {
+  content: "";
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  height: calc(17.71px*3/2);
+  background-color: #FCF8FF;
+  z-index: -1;
+}
+main .home::after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  clip-path: ellipse(55% 50% at 50% 50%);
+  height: calc(17.71px*3);
+  background-color: #24053E;
+  z-index: -1;
+}
+main .features {
+  margin-top: -89.71px;
+  padding-top: 245px;
+  height: 1070.71px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  background-color: #FCF8FF;
+}
+main .features::before {
+  content: "";
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  height: calc(17.71px*3/2);
+  background-color: #FFFFFF;
+}
+main .features::after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  clip-path: ellipse(55% 50% at 50% 50%);
+  height: calc(17.71px*3);
+  background-color: #FCF8FF;
+}
+
+.home .intro {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 64px;
-  clip-path: ellipse(100% 55% at 50% 45%);
-  overflow: visible;
-  position: relative;
 }
-main .home .pattern-img {
-  display: none;
-}
-main .home .intro {
-  margin: 160px 16px 0;
+.home .intro .text-content {
+  margin-top: 130px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
 }
-main .home .intro .title {
-  font-family: "Fraunces 144pt 2";
+.home .intro .text-content .title {
+  font-family: "Fraunces 144pt";
   font-style: normal;
   font-weight: 600;
-  font-size: 50px;
-  line-height: 50px;
   text-align: center;
   color: #FFFFFF;
+  /* Heading S */
+  font-size: 50px;
+  line-height: 50px;
 }
-main .home .intro .title span {
+.home .intro .text-content .title span {
   position: relative;
+  font-size: 50px;
+  line-height: 50px;
 }
-main .home .intro .title span:after {
+.home .intro .text-content .title span::after {
   content: "";
   width: 100%;
   height: 3px;
@@ -100,10 +168,7 @@ main .home .intro .title span:after {
   bottom: 5%;
   left: 0;
 }
-main .home .intro button {
-  padding: 11px 24px 12px 23px;
-  border: none;
-  background-color: #44FFA1;
+.home .intro .text-content button {
   font-family: "Manrope";
   font-style: normal;
   font-weight: 700;
@@ -111,33 +176,25 @@ main .home .intro button {
   line-height: 32px;
   text-align: center;
   letter-spacing: -0.16px;
+  border: 2px solid #44FFA1;
+  background-color: #44FFA1;
   color: #24053E;
+  padding: 9px 22px 10px 21px;
+  width: 133px;
 }
-main .home img {
-  width: 320px;
-  height: 182px;
-}
-main .features {
-  margin-top: -89.71px;
-  padding-top: 245px;
-  height: 1070.71px;
-  border-radius: 0 0 50% 50%/0 0 17.75px 17.75px;
-  background-color: #FCF8FF;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-}
-main .features .feature {
+
+.features .feature {
   margin: 0 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  text-align: center;
 }
-main .features .feature .number {
+.features .feature > * {
+  z-index: 1;
+}
+.features .feature .number {
+  padding: 5px 16px;
   width: 48px;
   height: 46px;
   border: 1px solid #584D62;
@@ -145,204 +202,589 @@ main .features .feature .number {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Fraunces 144pt 2";
+  font-family: "Fraunces 144pt";
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
   line-height: 36px;
   color: #24053E;
 }
-main .features .feature .text-content {
+.features .feature .text-content {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-main .features .feature .text-content .title {
-  font-family: "Fraunces 144pt 2";
+.features .feature .text-content .title {
+  font-family: "Fraunces 144pt";
   font-style: normal;
   font-weight: 600;
+  text-align: center;
+  color: #24053E;
+  /* Heading S */
   font-size: 28px;
   line-height: 36px;
-  color: #24053E;
 }
-main .features .feature .text-content .subtitle {
-  font-family: "Manrope 2";
+.features .feature .text-content .subtitle {
+  font-family: "Manrope regular";
   font-style: normal;
   font-weight: 400;
+  color: #584D62;
   font-size: 16px;
   line-height: 28px;
-  color: #584D62;
+  text-align: center;
+  max-inline-size: 343px;
 }
-main .test .test-content {
-  margin: 100.29px 16px 74px;
+
+.test .test-content {
+  margin: 100.29px 16px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-main .test .test-content img {
-  width: 281px;
-}
-main .test .test-content .inner-text {
+.test .inner-text {
   margin-top: -53px;
   padding: 32px 31px;
+  width: 343px;
   background-color: #24053E;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-main .test .test-content .inner-text .title {
-  font-family: "Fraunces 144pt 2";
+.test .inner-text .title {
+  font-family: "Fraunces 144pt";
   font-style: normal;
   font-weight: 600;
+  text-align: center;
+  color: #FFFFFF;
+  /* Heading S */
   font-size: 32px;
   line-height: 48px;
-  color: #FFFFFF;
 }
-main .test .test-content .inner-text .caption {
-  margin: 16px 0 24px;
-  font-family: "Manrope 2";
+.test .inner-text .caption {
+  font-family: "Manrope regular";
   font-style: normal;
   font-weight: 400;
+  color: #FFFFFF;
   font-size: 16px;
   line-height: 28px;
-  color: #FFFFFF;
+  text-align: center;
+  margin: 16px 0 24px;
 }
-main .test .test-content .inner-text button {
-  padding: 11px 23.5px 12px;
-  border: none;
-  background-color: #44FFA1;
+.test .inner-text button {
   font-family: "Manrope";
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 32px;
+  text-align: center;
   letter-spacing: -0.16px;
+  border: 2px solid #44FFA1;
+  background-color: #44FFA1;
   color: #24053E;
+  padding: 9px 21.5px 10px;
+  width: 172px;
 }
 
-footer .btns {
-  margin-bottom: 63.78px;
+footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 58px;
 }
-footer .btns .links {
+footer .inner-content {
+  margin: 74px 0 63.78px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  gap: 57.62px;
+}
+footer .inner-content .links {
+  display: flex;
+  align-items: center;
   gap: 28px;
 }
+footer .inner-content .links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer .inner-content .links a svg path {
+  fill: #584D62;
+}
+footer .attribution {
+  margin: 15px 0;
+  padding: 10px 12px;
+  width: 100%;
+  background-color: #24053E;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 5px;
+}
+footer .attribution p {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 32px;
+  text-align: center;
+  letter-spacing: -0.16px;
+  color: #FFFFFF;
+}
+footer .attribution p a {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 32px;
+  text-align: center;
+  letter-spacing: -0.16px;
+  border: none;
+  border-bottom: 3px solid #44FFA1;
+  background-color: transparent;
+  color: #FFFFFF;
+  padding-bottom: 2px;
+  width: 124px;
+  height: 34px;
+}
 
+@media only screen and (min-width: 648px) {
+  footer .attribution {
+    width: max-content;
+    align-self: flex-start;
+  }
+}
 @media only screen and (min-width: 768px) {
   header {
-    padding: 32px 39px 0 40px;
+    padding: 32px 40px 0 39px;
   }
 
-  main {
-    position: relative;
-  }
-  main .pattern-img {
-    display: inline;
+  main .pattern-bg {
+    display: inline-block;
     position: absolute;
-  }
-  main .pattern-img.sec {
-    left: 11.39px;
-    top: 387.94px;
-  }
-  main .pattern-img.third {
-    top: 0;
-    right: 0;
-  }
-  main .pattern-img.fourth {
-    bottom: 0;
-    right: 0;
+    transition: all 0.5s ease-out;
   }
   main .home {
     height: 540.24px;
-    border-radius: 0 0 50% 50%/0 0 36.25px 36.25px;
-    gap: 55px;
   }
-  main .home .pattern-img {
-    display: inline;
+  main .home::before {
+    content: "";
+    width: 100%;
     position: absolute;
+    left: 0;
+    bottom: -5px;
+    height: calc(36.24px*3/2);
+    background-color: #FCF8FF;
+    z-index: -1;
   }
-  main .home .pattern-img.first {
-    width: 270.29px;
-    height: 215.1px;
-    left: 11.39px;
-    top: 387.94px;
-    transform: rotate(-152deg);
-  }
-  main .home .pattern-img.sec {
-    left: 11.39px;
-    top: 387.94px;
-    transform: rotate(-152deg);
-  }
-  main .home .pattern-img.third {
-    top: 0;
-    right: 0;
-  }
-  main .home .pattern-img.fourth {
+  main .home::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    left: 0;
     bottom: 0;
-    right: 0;
+    clip-path: ellipse(55% 50% at 50% 50%);
+    height: calc(36.24px*3);
+    background-color: #24053E;
+    z-index: -1;
   }
-  main .home .intro {
-    margin: 122px 0 0;
+  main .features {
+    margin-top: -137.24px;
+    padding-top: 341px;
+    height: 920.73px;
+    gap: 48px;
+  }
+  main .features::before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    height: calc(36.24px*3/2);
+    background-color: #FFFFFF;
+  }
+  main .features::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    clip-path: ellipse(55% 50% at 50% 50%);
+    height: calc(36.24px*3);
+    background-color: #FCF8FF;
+  }
+  main .test {
+    display: flex;
+    justify-content: center;
+  }
+
+  .home .pattern-bg.left {
+    top: 71.12px;
+    left: -227.27px;
+  }
+  .home .pattern-bg.right {
+    top: 250px;
+    right: -93.68px;
+  }
+  .home .intro {
+    margin: 0;
+    gap: 55px;
+    overflow: hidden;
+    position: relative;
+  }
+  .home .intro .text-content {
+    margin-top: 122px;
     gap: 39px;
   }
-  main .home .intro .title {
+  .home .intro .text-content .title {
+    font-family: "Fraunces 144pt";
+    font-style: normal;
+    font-weight: 600;
+    text-align: center;
+    color: #FFFFFF;
+    /* Heading M */
     font-size: 60px;
     line-height: 60px;
   }
-  main .home img {
-    width: 514px;
-    height: 296px;
+  .home .intro .text-content .title span {
+    font-size: 60px;
+    line-height: 60px;
   }
-  main .features {
-    margin-top: -137.25px;
-    padding-top: 341px;
-    height: 920.73px;
-    border-radius: 0 0 50% 50%/0 0 36.25px 36.25px;
-    gap: 48px;
-  }
-  main .features .feature {
+
+  .features .feature {
     margin: 0;
     flex-direction: row;
     gap: 32px;
-    text-align: left;
   }
-  main .features .feature .text-content {
-    width: 493px;
+  .features .feature .text-content {
     align-items: flex-start;
   }
-  main .test .test-content {
-    margin: 100.27px 39px 80px 40px;
+  .features .feature .text-content .subtitle {
+    font-family: "Manrope regular";
+    font-style: normal;
+    font-weight: 400;
+    color: #584D62;
+    text-align: left;
+    max-inline-size: 493px;
+  }
+
+  .test .test-content {
+    margin: 100.27px 0 0;
     width: 689px;
-    display: flex;
-    align-items: stretch;
+    align-items: flex-start;
   }
-  main .test .test-content img {
-    align-self: flex-start;
-  }
-  main .test .test-content .inner-text {
+  .test .inner-text {
     margin-top: -130px;
     padding: 48px 56px 56px;
     width: 514px;
     align-self: flex-end;
-    text-align: left;
+    align-items: flex-start;
+    position: relative;
   }
-  main .test .test-content .inner-text .title {
+  .test .inner-text .title {
+    font-family: "Fraunces 144pt";
+    font-style: normal;
+    font-weight: 600;
+    text-align: center;
+    color: #FFFFFF;
+    /* Heading M */
+    text-align: left;
     font-size: 48px;
     line-height: 56px;
   }
-  main .test .test-content .inner-text button {
-    padding: 11px 23.5px 12px;
-    border: none;
-    background-color: #44FFA1;
+  .test .inner-text .caption {
+    font-family: "Manrope regular";
+    font-style: normal;
+    font-weight: 400;
+    color: #FFFFFF;
+    text-align: left;
+    margin: 24px 0;
+  }
+  .test .inner-text .pattern-bg.test-pt {
+    right: 12.69px;
+    bottom: -105.74px;
+  }
+
+  footer .inner-content {
+    margin: 80px 0 121.78px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  header {
+    padding: 56px 165px 0 165.35px;
+  }
+  header button {
     font-family: "Manrope";
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
     line-height: 32px;
+    text-align: center;
     letter-spacing: -0.16px;
+    border: none;
+    border-bottom: 3px solid #44FFA1;
+    background-color: transparent;
+    color: #FFFFFF;
+    font-size: 18px;
+    letter-spacing: -0.18px;
+    padding-bottom: 0px;
+    width: 140px;
+    height: 35px;
+  }
+
+  main .home {
+    height: 730px;
+  }
+  main .home::before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    height: calc(68px*3/2);
+    background-color: #FCF8FF;
+    z-index: -1;
+  }
+  main .home::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    clip-path: ellipse(55% 50% at 50% 50%);
+    height: calc(68px*3);
+    background-color: #24053E;
+    z-index: -1;
+  }
+  main .features {
+    margin-top: -226px;
+    padding-top: 481px;
+    height: 960px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 26px;
+  }
+  main .features::before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    height: calc(68px*3/2);
+    background-color: #FFFFFF;
+  }
+  main .features::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    clip-path: ellipse(55% 50% at 50% 50%);
+    height: calc(68px*3);
+    background-color: #FCF8FF;
+  }
+  main .test .test-content {
+    margin-top: 110px;
+    height: 647.74px;
+  }
+  main .test .inner-text .pattern-bg.test-pt {
+    right: 72.69px;
+    bottom: -61.74px;
+  }
+
+  .home .pattern-bg.left {
+    top: 116.12px;
+    left: -138.27px;
+  }
+  .home .pattern-bg.right {
+    top: 314.07px;
+    right: -48.08px;
+  }
+  .home .intro {
+    gap: 50px;
+  }
+  .home .intro .text-content {
+    margin-top: 146px;
+  }
+  .home .intro .text-content .title {
+    font-family: "Fraunces 144pt";
+    font-style: normal;
+    font-weight: 600;
+    text-align: center;
+    color: #FFFFFF;
+    /* Heading L */
+    font-size: 80px;
+    line-height: 80px;
+  }
+  .home .intro .text-content .title span {
+    font-size: 80px;
+    line-height: 80px;
+  }
+  .home .intro .text-content button {
+    height: 61px;
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: center;
+    letter-spacing: -0.16px;
+    border: 2px solid #44FFA1;
+    background-color: #44FFA1;
     color: #24053E;
+    font-size: 18px;
+    letter-spacing: -0.18px;
+    padding: 11px 29.5px 14px 30.5px;
+    width: 161px;
+  }
+
+  .features .feature {
+    flex-direction: column;
+    gap: 56px;
+  }
+  .features .feature .number {
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+    line-height: 40px;
+  }
+  .features .feature .text-content {
+    align-items: center;
+    gap: 28px;
+  }
+  .features .feature .text-content .title {
+    font-family: "Fraunces 144pt";
+    font-style: normal;
+    font-weight: 600;
+    text-align: center;
+    color: #24053E;
+    /* Heading M */
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .features .feature .text-content .subtitle {
+    font-family: "Manrope regular";
+    font-style: normal;
+    font-weight: 400;
+    color: #584D62;
+    font-size: 18px;
+    line-height: 32px;
+    text-align: center;
+    max-inline-size: 354px;
+  }
+
+  .test .test-content {
+    margin: 110px 0 0;
+    width: 1112px;
+    margin: 0;
+  }
+  .test .inner-text {
+    margin: -304px 0 0;
+    padding: 64px;
+    width: 730px;
+    height: 413px;
+  }
+  .test .inner-text .title {
+    font-family: "Fraunces 144pt";
+    font-style: normal;
+    font-weight: 600;
+    text-align: center;
+    color: #FFFFFF;
+    /* Heading L */
+    text-align: left;
+    font-size: 56px;
+    line-height: 64px;
+  }
+  .test .inner-text .caption {
+    font-family: "Manrope regular";
+    font-style: normal;
+    font-weight: 400;
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 32px;
+    margin: 32px 0;
+  }
+  .test .inner-text button {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: center;
+    letter-spacing: -0.16px;
+    border: 2px solid #44FFA1;
+    background-color: #44FFA1;
+    color: #24053E;
+    font-size: 18px;
+    letter-spacing: -0.18px;
+    padding: 11px 22.5px 14px 23.5px;
+    width: 190px;
+  }
+
+  footer .inner-content {
+    margin: 60.03px 0 110px;
+  }
+  footer .attribution p a {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: center;
+    letter-spacing: -0.16px;
+    border: none;
+    border-bottom: 3px solid #44FFA1;
+    background-color: transparent;
+    color: #FFFFFF;
+    font-size: 18px;
+    letter-spacing: -0.18px;
+    padding-bottom: 0px;
+    width: 140px;
+    height: 35px;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  button {
+    cursor: pointer;
+  }
+
+  header button {
+    transition: color 0.5s ease-out;
+  }
+  header button:hover {
+    color: #44FFA1;
+  }
+
+  main .home .intro .text-content button {
+    transition-property: background-color, color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+  }
+  main .home .intro .text-content button:hover {
+    background-color: #24053E;
+    color: #44FFA1;
+  }
+  main .test .inner-text button {
+    transition-property: background-color, color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+  }
+  main .test .inner-text button:hover {
+    background-color: #24053E;
+    color: #44FFA1;
+  }
+
+  footer .inner-content .links a svg path {
+    transition: all 0.5s ease-out;
+  }
+  footer .inner-content .links a:hover svg path {
+    fill: #24053E;
+  }
+  footer .attribution p a {
+    transition: color 0.5s ease-out;
+  }
+  footer .attribution p a:hover {
+    color: #44FFA1;
   }
 }
